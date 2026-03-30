@@ -1,0 +1,41 @@
+blargh
+x
+foo bar baz
+;;;;;
+load("./another_file.csv")
+   open("./spaced.csv");   
+12345
+???!!!
+this is not code
+fetch(./missing_quotes.csv);
+READ("./uppercase.csv");
+scan    (   "./weird_spacing.csv"   )   ;
+garbage_line_here;
+not_a_function_call
+process("./data.csv"); extra
+"just a string"
+open("");
+()
+[[]]
+{{{{{
+alpha beta gamma
+parse("./nested/path/data.csv");
+semi;colon;chaos;
+tabs		and		stuff
+
+   
+save("./final.csv");
+trailing words after this
+doThing("hello");
+
+
+read("/mnt/d/GitHub/CS_THESIS/example_code/data.csv");
+convert(123, 456);
+maybe_this_looks_like_code but isn't
+___
+null
+false
+fn main() {
+let x = 3;
+}
+csv_read("./file.csv");
