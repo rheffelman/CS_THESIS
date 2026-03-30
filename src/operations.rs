@@ -7,7 +7,7 @@ enum Number {
     Float(f64),
 }
 #[derive(Debug, PartialEq)]
-enum Type {
+pub enum Type {
     Int,
     Float,
     String,

@@ -1,3 +1,4 @@
+use crate::operations;
 use crate::{csv::CSV, parser::Parser};
 use regex::Regex;
 use std::collections::HashMap;
@@ -59,6 +60,7 @@ impl Compiler {
             for statement in statements {
                 if !self.check_parentheses_structure(statement.to_string()) {
                     println!("Error: problem with brace or quote structure with statement: {}", statement.to_string());
+                    let x = operations::guess_type(statement);
                     //return ("problem with brace or quote structure with statement: {statement}").to_string();
                 }
             }
