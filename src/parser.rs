@@ -26,15 +26,15 @@ impl Parser {
             }
         };
 
-        let trailing_check = Regex::new(r";\s*$").unwrap();
+        let trailing_check = Regex::new(r"[;:]\s*$").unwrap();
         if !trailing_check.is_match(contents) {
             return Err(io::Error::new(
                 io::ErrorKind::InvalidData,
-                "non-whitespace content found after last ';'",
+                "non-whitespace content found after last ';' or ':'",
             ));
         }
 
-        let split_regex = Regex::new(r";").unwrap();
+        let split_regex = Regex::new(r"[;:]").unwrap();
         let statements: Vec<String> = split_regex
             .split(contents)
             .map(|s| s.trim())
