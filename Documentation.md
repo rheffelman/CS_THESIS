@@ -59,6 +59,14 @@ sum = branch add(x,y);
 label add(x, y):
   return x + y;
 ```
-
-
+Loops can be implemented using recursion:
 ```
+let i = 0;
+branch loop;
+label loop:
+   if (i < 100) {
+      i = i + 1;
+      branch loop;
+   }  
+```
+It's important to note, I only say "recursion" in the theoretical logic sense, nothing is repeatedly pushed to the stack frame so it doesn't come with the drawback of traditional recursion in computer science.
