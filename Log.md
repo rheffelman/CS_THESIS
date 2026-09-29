@@ -7,3 +7,6 @@
 - I decided ANTLR did sound like a tool I'm interested in using, so I set it up in my repo/environment so I could start playing around with it.
 
 ## Week 3 (9-29-2026)
+- started working on a formal language for my language in ANTLR
+<img width="726" height="328" alt="image" src="https://github.com/user-attachments/assets/c58f3e50-1e47-482d-be20-58835422b82a" />
+
