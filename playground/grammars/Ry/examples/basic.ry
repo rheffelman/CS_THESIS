@@ -1,0 +1,15 @@
+let i = 0;
+let y = 10;
+let Ts = (H * T1) + ((1.0 - H) * (T1 + T2));
+
+branch one;
+
+label one:
+    let hw = "Hello World!\n";
+    print(hw);
+    i = i + 1;
+    if (i < y) branch one;
+
+if (i == 10) {
+    print("done");
+}

@@ -1,0 +1,7 @@
+// Parses fine (it's valid syntax), but the listener's checks catch the mistakes.
+let i = 0;
+
+label loop:
+    i = i + 1;
+    count = i;
+    if (i < 10) branch lop;

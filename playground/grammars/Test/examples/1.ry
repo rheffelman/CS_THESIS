@@ -1,0 +1,11 @@
+
+let i = 0;
+let y = 10;
+
+branch one;
+
+label one:
+    let hw = "Hello World!\n";
+    print(hw);
+    i = i + 1;
+    if (i < y) branch one;

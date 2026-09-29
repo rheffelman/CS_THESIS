@@ -1,0 +1,12 @@
+// Used automatically for grammars/@NAME@/ because it has no .cpp file of its own.
+// No start rules are registered, so any rule can be used with --rule and the
+// first rule in the grammar is the default. To add your own code, create
+// grammars/@NAME@/main.cpp (templates/main.cpp is a good starting point).
+#include "@NAME@Lexer.h"
+#include "@NAME@Parser.h"
+#include "playground.h"
+
+int main(int argc, char **argv) {
+    pg::Playground<@NAME@Lexer, @NAME@Parser> play("@NAME@");
+    return play.run(argc, argv);
+}
