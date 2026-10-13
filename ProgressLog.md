@@ -10,10 +10,16 @@
 - started working on a formal grammar for my language in ANTLR
 <img width="726" height="328" alt="image" src="https://github.com/user-attachments/assets/c58f3e50-1e47-482d-be20-58835422b82a" />
 
-## Week 4 (10-6-2026
+## Week 4 (10-6-2026)
 - I spent my time this week familiarizing myself with the structure of the generated parser and lexer from ANTLR.
 - I had claude write some code that makes it easier to understand, I have an explore(object) method that lets me easily just see what a custom object is and what I can do with it.<img width="943" height="1203" alt="image" src="https://github.com/user-attachments/assets/de7718f8-fa14-4dde-89b1-83e32048a510" />
 
 - As practice, I made some basic error checking code that traverses the parsed tree, and checks for things like variables being used before they're declared:
 <img width="181" height="70" alt="image" src="https://github.com/user-attachments/assets/896d774a-9a1d-4868-8259-8faefd80584a" />
 <img width="706" height="52" alt="image" src="https://github.com/user-attachments/assets/8b6ab234-d09d-442d-97dd-cc07e92fa92b" />
+
+## Week 5 (10-13-2026)
+- I found a nice tuple design for my IR, now I am working on converting everything from my tree into this design.
+<img width="387" height="159" alt="image" src="https://github.com/user-attachments/assets/fc0b9d35-d934-4d59-9d30-3090eeac166e" />
+
+- Let statements are easy, but things like if statements and structs are not.
