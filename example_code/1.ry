@@ -1,14 +1,11 @@
 
 let i = 0;
-let y = 10;
+let j = 10;
 
 branch one;
 
 label one:
-    let hw = "Hello World!\n";
+    let hw = "Hello World!";
     print(hw);
     i = i + 1;
-    if (i < y) branch one;
-
-
-A1:A10
+    if (i < j) branch one;

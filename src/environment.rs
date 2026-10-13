@@ -174,7 +174,6 @@ impl Type {
         if trimmed.eq_ignore_ascii_case("true") || trimmed.eq_ignore_ascii_case("false") {
             return Self::Bool;
         }
-        // Both integers and floats now map to Numeric.
         if trimmed.parse::<i64>().is_ok() || trimmed.parse::<f64>().is_ok() {
             return Self::Numeric;
         }

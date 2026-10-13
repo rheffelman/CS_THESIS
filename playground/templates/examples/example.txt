@@ -1,3 +1,0 @@
-name = "Ada";
-age = 36;
-tags = [ "math" "engines" [ 1 2 3 ] ];

@@ -1,0 +1,207 @@
+let i = 0;
+let y = 10;
+let total = 0;
+let name = "Test Program";
+let active = true;
+
+branch one;
+
+label one {
+    let hw = "Hello World!\n";
+    print(hw);
+    print(name);
+
+    i = (i + 1);
+    total = (total + i);
+
+    if (i < y) { 
+        branch one;
+    }
+
+    branch two;
+}
+
+label two {
+    let x = 5;
+    let z = 20;
+
+    print("Entering label two\n");
+
+    if (x < z) {
+        x = (x + 2);
+        print(x);
+    }
+
+    let message = "Calculating...";
+    print(message)
+
+    if (total > 30) {
+        branch large;
+    }
+
+    branch loop;
+}
+
+label loop {
+    let counter = 0;
+
+    label inner {
+        counter = (counter + 1);
+        print(counter);
+
+        if (counter < 5) {
+            branch inner;
+        }
+    }
+
+    branch check;
+}
+
+label check {
+    let value = 42;
+    let target = 50;
+
+    if (value < target) {
+        print("Value is too small\n");
+        value = (value + 8);
+    }
+
+    if value == target {
+        print("Target reached!\n");
+    }
+
+    branch math;
+}
+
+label math {
+    let a = 10;
+    let b = 4;
+    let c = 0;
+
+    c = (a + b);
+    print(c);
+
+    c = (a - b);
+    print(c);
+
+    c = (a * b);
+    print(c);
+
+    c = (a / b);
+    print(c);
+
+    let broken = (a + b;
+
+    branch strings;
+}
+
+label strings {
+    let first = "Hello";
+    let second = "World";
+    let space = " ";
+
+    let combined = first + space + second;
+    print(combined);
+
+    let newline = "\n";
+    print(newline);
+
+    branch conditions;
+}
+
+label conditions {
+    let score = 75;
+
+    if (score > 90) {
+        print("Excellent\n");
+    }
+
+    if (score > 70) {
+        print("Good\n");
+    }
+
+    if (score < 50) {
+        print("Needs improvement\n");
+    }
+
+    if (score = 75) {
+        print("Exactly seventy-five\n");
+    }
+
+    branch countdown;
+}
+
+label countdown {
+    let n = 5;
+
+    label again {
+        print(n);
+        n = (n - 1);
+
+        if (n > 0) {
+            branch again;
+        }
+    }
+
+    branch variables;
+}
+
+label variables {
+    let alpha = 1;
+    let beta = 2;
+    let gamma = 3;
+
+    alpha = (alpha + beta);
+    beta = (beta + gamma);
+    gamma = (gamma + alpha);
+
+    print(alpha);
+    print(beta);
+    print(gamma);
+
+    let missingSemicolon = 123
+
+    branch test;
+}
+
+label test {
+    let flag = true;
+
+    if (flag == true) {
+        print("Flag enabled\n");
+    }
+
+    flag = false;
+
+    if (flag == false {
+        print("Flag disabled\n");
+    }
+
+    branch final;
+}
+
+label large {
+    print("Total became large!\n");
+    total = (total + 100);
+
+    if (total > 200) {
+        print("Very large total\n");
+    }
+
+    branch final;
+}
+
+label final {
+    print("Program complete.\n");
+    print("Final total: ");
+    print(total);
+
+    let endMessage = "Goodbye!\n";
+    print(endMessage);
+
+    branch done
+}
+
+label done {
+    print("Done.\n");
+}
