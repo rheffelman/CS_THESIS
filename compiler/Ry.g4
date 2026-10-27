@@ -1,4 +1,4 @@
-grammar Test;
+grammar Ry;
 
 program
     : statement* EOF

@@ -18,8 +18,8 @@ def short(value):
         return f"<{type(value).__qualname__} {text!r}>"
     if type(value).__name__ == "CommonToken":
         return f"<Token {value.text!r} line {value.line} col {value.column}>"
-    if type(value).__name__ == "TestParser":
-        return "<the TestParser>"
+    if type(value).__name__ == "RyParser":
+        return "<the RyParser>"
     text = repr(value)
     return text if len(text) <= 70 else text[:67] + "..."
 

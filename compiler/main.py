@@ -3,12 +3,11 @@ import sys
 import re
 from pathlib import Path
 from explore import explore
-from antlr4 import CommonTokenStream, FileStream, Token, InputStream
-from antlr4.tree.Tree import ErrorNode, TerminalNode
+from antlr4 import CommonTokenStream, FileStream
+from antlr4.tree.Tree import TerminalNode
 
-from generated.TestLexer import TestLexer
-from generated.TestParser import TestParser
-from generated.TestVisitor import TestVisitor
+from generated.RyLexer import RyLexer
+from generated.RyParser import RyParser
 
 os.system("")
 sys.stdout.reconfigure(encoding="utf-8")
@@ -21,8 +20,6 @@ def walk(node, depth=0):
     print("  " * depth + node.parser.ruleNames[node.getRuleIndex()])
     for child in node.getChildren():
         walk(child, depth + 1)
-
-variables = []
 
 IR = []
 LABEL_COUNT = 0
@@ -68,7 +65,7 @@ def statements(node):
     if isinstance(node, TerminalNode):
         return
 
-    elif isinstance(node, TestParser.LetContext):
+    elif isinstance(node, RyParser.LetContext):
         expr = node.expr()
         ID = expr.operand(0).getText()
         value = None  # `let x;` with no value
@@ -77,7 +74,7 @@ def statements(node):
         IR.append(("LET", ID, value))
         return
 
-    elif isinstance(node, TestParser.ExprStatementContext):
+    elif isinstance(node, RyParser.ExprStatementContext):
         expr = node.expr()
         op = expr.binaryOperator()
         if op is not None and op.getText() == "=":
@@ -88,15 +85,15 @@ def statements(node):
             lower_expr(expr)  # e.g. print(hw); the result is unused
         return
 
-    elif isinstance(node, TestParser.BranchContext):
+    elif isinstance(node, RyParser.BranchContext):
         ID = node.children[1].children[0].children[0].symbol.text
         IR.append(("BRANCH", ID))
 
-    elif isinstance(node, TestParser.LabelContext):
+    elif isinstance(node, RyParser.LabelContext):
         ID = node.children[1].children[0].children[0].symbol.text
         IR.append(("LABEL", ID))
 
-    elif isinstance(node, TestParser.IfContext):
+    elif isinstance(node, RyParser.IfContext):
         cond = lower_expr(node.expr())
         end = new_label()
         IR.append(("BRANCH_IF_FALSE", cond, end))
@@ -164,7 +161,7 @@ def c_value(value):
     return value
 
 def raise_stmts(types):
-    output_string = Path("./template.c").read_text(encoding="utf-8")
+    output_string = Path(__file__).with_name("template.c").read_text(encoding="utf-8")
 
     # every variable and temp is declared at the top of main so a goto never jumps past a declaration
     declarations = [f"{C_TYPES[t]} {name};" for name, t in types.items()]
@@ -197,10 +194,10 @@ def raise_stmts(types):
 
 def main():
     text = FileStream(sys.argv[1], encoding="utf-8")
-    lexer = TestLexer(text)
+    lexer = RyLexer(text)
     tokens = CommonTokenStream(lexer)
 
-    parser = TestParser(tokens)
+    parser = RyParser(tokens)
     tree = parser.program()
 
     statements(tree)
