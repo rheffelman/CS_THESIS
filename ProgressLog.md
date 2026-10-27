@@ -23,3 +23,37 @@
 <img width="387" height="159" alt="image" src="https://github.com/user-attachments/assets/fc0b9d35-d934-4d59-9d30-3090eeac166e" />
 
 - Let statements are easy, but things like if statements and structs are not.
+
+## Week 6 (10-20-2026)
+- finished my program that generates my IR from the abstract syntax tree given by ANTLR.
+For example:
+```
+let i = 0;
+let y = 10;
+
+branch one;
+
+label one {
+    let hw = "Hello World!\n";
+    print(hw);
+    i = (i + 1);
+    if (i < 10) { 
+        branch one;
+    }
+}
+```
+gets converted into:
+```
+('LET', 'i', '0')
+('LET', 'y', '10')
+('BRANCH', 'one')
+('LABEL', 'one')
+('LET', 'hw', '"Hello World!\\n"')
+('CALL', '_t0', 'print', ['hw'])
+('OP', '_t1', 'i', '+', '1')
+('ASSIGN', 'i', '_t1')
+('OP', '_t2', 'i', '<', '10')
+('BRANCH_IF_FALSE', '_t2', '_L0')
+('BRANCH', 'one')
+('LABEL', '_L0')
+```
