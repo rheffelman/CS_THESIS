@@ -57,3 +57,66 @@ gets converted into:
 ('BRANCH', 'one')
 ('LABEL', '_L0')
 ```
+
+## Week 7 (10-27-2026)
+- I wrote some basic type deduction that operates on the IR. ``('LET', 'i', '0')`` -->``('LET', 'i', '0', 'int')``
+- I wrote some code that goes over the IR and constructs an equivalent C statement for every statement in the IR.
+
+This code in my own language:
+```
+let i = 0;
+let y = 10;
+
+branch one;
+
+label one {
+    let hw = "Hello World!\n";
+    print(hw);
+    i = (i + 1);
+    if (i < 10) { 
+        branch one;
+    }
+}
+```
+gets converted into this IR:
+```
+('LET', 'i', '0', 'int')
+('LET', 'y', '10', 'int')
+('BRANCH', 'one')
+('LABEL', 'one')
+('LET', 'hw', '"Hello World!\\n"', 'string')
+('CALL', '_t0', 'print', ['hw'])
+('OP', '_t1', 'i', '+', '1')
+('ASSIGN', 'i', '_t1')
+('OP', '_t2', 'i', '<', '10')
+('BRANCH_IF_FALSE', '_t2', '_L0')
+('BRANCH', 'one')
+('LABEL', '_L0')
+```
+which is then converted into this C program, which compiles and runs using a C compiler (there's a bunch of boilerplate like #includes and the definition of print() that aren't included in this snippet):
+```
+int main(void)
+{
+    int i;
+    int y;
+    const char * hw;
+    int _t1;
+    bool _t2;
+
+    i = 0;
+    y = 10;
+    goto one;
+    one:;
+    hw = "Hello World!\n";
+    print(hw);
+    _t1 = i + 1;
+    i = _t1;
+    _t2 = i < 10;
+    if (!_t2) goto _L0;
+    goto one;
+    _L0:;
+
+    return 0;
+}
+```
+This means I've officially written a compiler!
