@@ -1,1 +1,9 @@
-/target
+# ANTLR output (rebuild with compiler/generate.cmd)
+compiler/generated/
+.antlr/
+__pycache__/
+
+# compiler output
+compiler/examples/*.c
+*.exe
+.venv/
