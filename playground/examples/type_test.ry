@@ -1,0 +1,32 @@
+let expected_string_1 = "test";
+let expected_string_2 = "";
+let expected_string_3 = " ";
+let expected_string_4 = "123";
+let expected_string_5 = "1.5";
+let expected_string_6 = "true";
+let expected_string_7 = "hello world";
+let expected_string_8 = "line\nbreak";
+let expected_string_9 = "quote \" inside";
+let expected_string_10 = "back\\slash";
+
+let expected_int_1 = 0;
+let expected_int_2 = 1;
+let expected_int_3 = 42;
+let expected_int_4 = 1000000;
+let expected_int_5 = 2147483647;
+let expected_int_6 = 007;
+
+let expected_string_copy_1 = expected_string_1;
+let expected_int_copy_1 = expected_int_3;
+let expected_int_copy_2 = expected_int_copy_1;
+
+let expected_int_expr_1 = (1 + 2);
+let expected_int_expr_2 = (10 - 3);
+let expected_int_expr_3 = (expected_int_3 * 2);
+let expected_int_expr_4 = ((4 + 5) * 2);
+let expected_string_expr_1 = ("a" + "b");
+let expected_string_expr_2 = (expected_string_1 + "!");
+let expected_bool_expr_1 = (1 < 2);
+let expected_bool_expr_2 = (expected_int_3 == 42);
+let expected_bool_expr_3 = (expected_int_1 != expected_int_2);
+let expected_bool_expr_4 = ((1 < 2) and (3 > 2));

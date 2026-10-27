@@ -1,0 +1,24 @@
+let expected_int_1 = -7;
+let expected_int_2 = -2147483648;
+
+let expected_float_1 = .1;
+let expected_float_2 = 0.1;
+let expected_float_3 = 1.0;
+let expected_float_4 = 1.;
+let expected_float_5 = -0.5;
+let expected_float_6 = -.5;
+let expected_float_7 = 3.14159;
+let expected_float_8 = 0.0;
+let expected_float_9 = 1e10;
+let expected_float_10 = 1.5e-3;
+let expected_float_11 = 2E3;
+let expected_float_12 = 123456789.123456789;
+
+let expected_bool_1 = true;
+let expected_bool_2 = false;
+
+let expected_float_copy_1 = expected_float_1;
+let expected_float_expr_1 = (1.5 + 2.5);
+let expected_float_expr_2 = (1 + .5);
+let expected_float_expr_3 = (expected_int_1 * expected_float_7);
+let expected_bool_expr_1 = (expected_bool_1 or expected_bool_2);
